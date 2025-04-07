@@ -42,6 +42,19 @@ app.put('/users/:id',(req,res)=>{
         writedata();
         res.status(200).json({ message: 'User updated successfully!', data: users[index] });
  })
+ app.delete('/users/:id',(req,res)=>{
+    const uid = req.params.id;
+    const index = users.findIndex(users => user.id == uid);
+
+    if(index == -1){
+        res.status(484).json({message: 'User not found'});
+    }
+
+    users.splice(index,1);
+    writedata();
+
+    res.status(280).json({message:'User deleted successfully'})
+ })
 app.listen(9000,() => {
     console.log("Server started on port 9000");
 })
