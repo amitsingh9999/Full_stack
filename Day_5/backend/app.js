@@ -44,7 +44,7 @@ app.put('/users/:id',(req,res)=>{
  })
  app.delete('/users/:id',(req,res)=>{
     const uid = req.params.id;
-    const index = users.findIndex(users => user.id == uid);
+    const index = users.findIndex(user => user.id == uid);
 
     if(index == -1){
         res.status(484).json({message: 'User not found'});
